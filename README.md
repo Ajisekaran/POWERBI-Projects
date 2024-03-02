@@ -40,3 +40,75 @@ Acknowledgements
 - Special thanks to DisneyPlusHotstar for providing access to the data.
 - Thanks to the PowerBI community for valuable resources and support.
 
+Certainly! Below is a README file tailored for your DisneyPlusHotstar project:
+
+---
+
+# DisneyPlusHotstar Data Analytics Project
+
+## Overview
+This project focuses on analyzing user engagement and content performance data for DisneyPlusHotstar using Excel, MySQL, and Tableau. By leveraging these tools, the project aims to extract valuable insights from a large dataset comprising approximately 82k rows of data. The analysis will uncover trends, patterns, and demographics to enhance user experience and optimize content strategies for DisneyPlusHotstar.
+
+## Tools Used
+- Excel: For initial data exploration, cleaning, and basic analysis.
+- MySQL: For storing and querying the dataset to extract relevant information.
+- Tableau: For creating dynamic dashboards and visualizations to present insights.
+
+## Datasets Used
+- DisneyPlusHotstar user engagement and content performance data (approx. 82k rows).
+
+## SQL Analysis (Code)
+```sql
+-- Insert your SQL queries and analysis here
+```
+
+## Tableau Dashboard - DisneyPlusHotstar
+[Link to Tableau Dashboard](insert_link_here)
+
+## Business Problem
+DisneyPlusHotstar aims to gather useful insights on their shows and movies to enhance their subscribers' experience. The challenge lies in effectively analyzing a vast amount of data to extract meaningful insights. This project aims to provide a robust and scalable data analytics solution to handle the extensive dataset and uncover valuable patterns and trends.
+
+## How I Plan on Solving the Problem
+By leveraging SQL and Tableau, this project will extract relevant information from the DisneyPlusHotstar dataset and conduct insightful analyses. SQL queries will be used to uncover key metrics such as viewer ratings, popularity trends, genre preferences, and viewership patterns. The data will then be visualized using Tableau to present findings in an interactive dashboard format, allowing stakeholders to gain actionable insights through visually appealing charts, graphs, and interactive visualizations.
+
+## Questions I Wanted to Answer From the Dataset
+1. --Extract distinct types (movies or TV shows)
+select DISTINCT type
+From DashboardProject..disneyplus
+```
+2. -- Extract relevant details (Release year,Title,Genre,Duration)
+
+Select YEAR(date_added ) as release_year,title,duration
+From DashboardProject..disneyplus
+```
+3. --Assuming you have country information in  dataset
+
+Select country,COUNT(*) as total_shows
+From DashboardProject..disneyplus
+Group by country
+
+--Get the top 10 genres based on show count
+
+select TOP 10 disney.genre,COUNT(*) as show_count
+From DashboardProject..disneyplus as disney
+Group by disney.genre
+Order by show_count DESC
+```
+4. --Count of shows by type
+
+Select type,COUNT(*) as show_count
+From DashboardProject..disneyplus
+Group by type
+
+--count of shows by release year and type
+
+Select YEAR (release_year) as release_year,type,COUNT(*) as show_count
+FROM DashboardProject..disneyplus
+Group by release_year,type
+```
+
+## Conclusion
+This project aims to provide DisneyPlusHotstar with valuable insights into their content performance and user engagement. By leveraging Excel, MySQL, and Tableau, the analysis will uncover key trends and patterns, allowing DisneyPlusHotstar to optimize their content strategies and enhance their subscribers' viewing experience.
+
+---
+
